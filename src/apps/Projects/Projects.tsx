@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { FolderGit2, ArrowLeft, Code2, Layers3 } from "lucide-react";
+import { FolderGit2, ArrowLeft, Code2, Layers3, ExternalLink } from "lucide-react";
 import { projects, type Project } from "./projects.data";
 
 type Category = "All" | "Web" | "API" | "Mobile";
@@ -36,6 +36,21 @@ export default function Projects() {
 
           <h2>{selectedProject.name}</h2>
           <p>{selectedProject.description}</p>
+
+          <div className="project-detail-section">
+            <h3>
+                <ExternalLink size={17} />
+                URL
+            </h3>
+
+            <div className="project-tech-list">
+                <span>
+                    <a href={selectedProject.url} target="_blank">
+                        {selectedProject.url}
+                    </a>
+                </span>
+            </div>
+          </div>
 
           <div className="project-detail-section">
             <h3>
