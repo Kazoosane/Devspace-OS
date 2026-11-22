@@ -36,9 +36,9 @@ export function executeCommand(
           "Developer Profile",
           "-----------------",
           "Name: Hadi Sumanjaya",
-          "Role: Backend Developer Enthusiast",
+          "Role: Full Stack Developer Enthusiast",
           "Location: Jakarta, Indonesia",
-          "Focus: Backend Development",
+          "Focus: Full Stack Development",
         ],
       };
 
@@ -58,11 +58,14 @@ export function executeCommand(
           "Technology Stack",
           "----------------",
           "PHP",
+          "Javascript",
           "Laravel",
           "Node.js",
+          "Express.js",
           "TypeScript",
-          "PostgreSQL",
           "React",
+          "PostgreSQL",
+          "MySQL"
         ],
       };
 
@@ -71,8 +74,9 @@ export function executeCommand(
         output: [
           "Contact Information",
           "-------------------",
-          "GitHub: github.com/yourusername",
+          "GitHub: github.com/Kazoosane",
           "Instagram: @yourusername",
+          "Email: hadisumanjaya282@gmail.com"
         ],
       };
 
