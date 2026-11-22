@@ -33,17 +33,7 @@ button {
     height: 100dvh;
     overflow: hidden;
 
-    background:
-        radial-gradient(ellipse at 75% 20%,
-            rgba(59, 130, 246, 0.22),
-            transparent 40%),
-        radial-gradient(ellipse at 80% 85%,
-            rgba(139, 92, 246, 0.28),
-            transparent 45%),
-        linear-gradient(135deg,
-            #080b16,
-            #101a38 60%,
-            #100c2b);
+    background: #111626
 }
 
 /* Topbar */
@@ -172,7 +162,7 @@ button {
 }
 
 .settings-button {
-    display: grid;
+    display: none;
     place-items: center;
 
     width: 42px;
@@ -391,7 +381,7 @@ button {
     pointer-events: auto;
 
     background: rgba(10, 17, 38, 0.94);
-    border: 1px solid rgba(59, 130, 246, 0.55);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 15px;
 
     box-shadow:
