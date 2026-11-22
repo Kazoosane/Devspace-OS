@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Clock3, CalendarDays } from "lucide-react";
+import WindowManager from "../window/WindowManager";
+import { useWindowStore } from "../../stores/windowStore";
 
 import Sidebar from "./Sidebar";
-import Taskbar from "./TaskBar";
+import Taskbar from "./Taskbar";
 
 export default function Desktop() {
     const [activeApp, setActiveApp] = useState("about");
@@ -30,6 +32,20 @@ export default function Desktop() {
     year: "numeric",
     });
 
+    const openWindow = useWindowStore((state) => state.openWindow);
+
+    const handleOpenApp = (id: string) => {
+        const titles: Record<string, string> = {
+            about: "About Me",
+            projects: "Projects",
+            skills: "Tech Stack",
+            terminal: "Terminal",
+            api: "API Playground",
+            contact: "Contact",
+        };
+        setActiveApp(id);
+        openWindow(id, titles[id] ?? id);
+    };
 
     return (
         <motion.main
@@ -68,41 +84,19 @@ export default function Desktop() {
         style={{ position: "absolute", inset: "0 auto 0 0" }}
         >
         <Sidebar
-            activeApp={activeApp}
-            onSelect={setActiveApp}
+        activeApp={activeApp}
+        onSelect={handleOpenApp}
         />
         </motion.div>
 
         {/* Workspace */}
         <motion.section
         className="workspace"
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{
-            duration: 0.7,
-            delay: 0.8,
-            ease: "easeOut",
-        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
         >
-        <div className="placeholder-window">
-            <span className="window-label">
-            DEVSPACE OS
-            </span>
-
-            <h1>
-            Welcome to <span>DevSpace.</span>
-            </h1>
-
-            <p>
-            Your personal developer workspace.
-            </p>
-
-            <button
-            onClick={() => setActiveApp("terminal")}
-            >
-            Open Terminal →
-            </button>
-        </div>
+        <WindowManager />
         </motion.section>
 
         {/* Taskbar */}
@@ -112,8 +106,8 @@ export default function Desktop() {
         transition={{ duration: 0.5, delay: 1.1 }}
         >
         <Taskbar
-            activeApp={activeApp}
-            onSelect={setActiveApp}
+        activeApp={activeApp}
+        onSelect={handleOpenApp}
         />
         </motion.div>
     </motion.main>
