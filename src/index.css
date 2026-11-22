@@ -263,10 +263,9 @@ button {
     align-items: center;
     gap: 8px;
 
-    padding: 10px 14px;
+    padding: 8px 14px;
 
     background: rgba(12, 20, 43, 0.8);
-    border: 1px solid rgba(59, 130, 246, 0.35);
     border-radius: 20px;
 
     backdrop-filter: blur(20px);
