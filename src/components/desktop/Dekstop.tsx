@@ -61,6 +61,9 @@ export default function Desktop() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         >
+        <div className="topbar-title">
+            <a href="/">Kazoosane <div className="topbar-divider" /><span>Devspace OS</span></a>
+        </div>
         <div className="system-info">
             <span>
             <Clock3 size={17} />
