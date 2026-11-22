@@ -1,9 +1,403 @@
 @import "tailwindcss";
 
-@theme {
-    --color-background: #080B16;
-    --color-surface: #11182B;
-    --color-primary: #3B82F6;
-    --color-secondary: #8B5CF6;
-    --color-accent: #22D3EE;
+:root {
+    font-family: Inter, system-ui, sans-serif;
+    color: #e2e8f0;
+    background: #080b16;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Desktop */
+
+.desktop {
+    position: relative;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(ellipse at 75% 20%,
+            rgba(59, 130, 246, 0.22),
+            transparent 40%),
+        radial-gradient(ellipse at 80% 85%,
+            rgba(139, 92, 246, 0.28),
+            transparent 45%),
+        linear-gradient(135deg,
+            #080b16,
+            #101a38 60%,
+            #100c2b);
+}
+
+/* Topbar */
+
+.topbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 0 25px;
+
+    background: rgba(8, 11, 22, 0.65);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+
+    backdrop-filter: blur(15px);
+    z-index: 10;
+}
+
+.system-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+.system-info span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.system-info svg {
+    color: #8b5cf6;
+}
+
+.topbar-divider {
+    width: 1px;
+    height: 18px;
+    background: #334155;
+}
+
+/* Sidebar */
+
+.sidebar {
+    position: absolute;
+    top: 44px;
+    bottom: 0;
+    left: 0;
+
+    width: 112px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 35px 10px 22px;
+
+    background: rgba(8, 11, 22, 0.55);
+    border-right: 1px solid rgba(59, 130, 246, 0.15);
+
+    backdrop-filter: blur(18px);
+    z-index: 5;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.sidebar-item {
+    width: 100%;
+    min-height: 82px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    color: #94a3b8;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    transition: 0.2s ease;
+}
+
+.sidebar-item svg {
+    color: #3b82f6;
+}
+
+.sidebar-item span {
+    font-size: 11px;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    color: #ffffff;
+    background: rgba(59, 130, 246, 0.13);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.sidebar-item.active svg {
+    color: #8b5cf6;
+}
+
+.settings-button {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    color: #94a3b8;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 12px;
+}
+
+/* Workspace */
+
+.workspace {
+    position: absolute;
+    top: 44px;
+    left: 112px;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+.placeholder-window {
+    width: min(600px, 100%);
+    padding: 45px;
+
+    background: rgba(12, 20, 43, 0.75);
+    border: 1px solid rgba(59, 130, 246, 0.45);
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 35px rgba(59, 130, 246, 0.12),
+        inset 0 0 30px rgba(139, 92, 246, 0.05);
+
+    backdrop-filter: blur(20px);
+}
+
+.window-label {
+    color: #22d3ee;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.placeholder-window h1 {
+    margin: 20px 0 10px;
+    font-size: clamp(28px, 5vw, 48px);
+}
+
+.placeholder-window h1 span {
+    background: linear-gradient(90deg,
+            #3b82f6,
+            #8b5cf6);
+
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.placeholder-window p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.placeholder-window button {
+    margin-top: 25px;
+    padding: 11px 20px;
+
+    color: white;
+    background: linear-gradient(100deg,
+            #2563eb,
+            #7c3aed);
+
+    border: 0;
+    border-radius: 9px;
+
+    transition: 0.2s ease;
+}
+
+.placeholder-window button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Taskbar */
+
+.taskbar {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 14px;
+
+    background: rgba(12, 20, 43, 0.8);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.12);
+    z-index: 20;
+}
+
+.taskbar-item {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    color: #64748b;
+    background: transparent;
+    border: 0;
+    border-radius: 11px;
+
+    transition: 0.2s ease;
+}
+
+.taskbar-item:hover {
+    color: #ffffff;
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.taskbar-item.active {
+    color: #ffffff;
+    background: rgba(59, 130, 246, 0.3);
+}
+
+.taskbar-item:nth-child(3n) {
+    color: #8b5cf6;
+}
+
+.taskbar-divider {
+    width: 1px;
+    height: 30px;
+    margin: 0 5px;
+    background: rgba(148, 163, 184, 0.3);
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+    .sidebar {
+        width: 72px;
+        padding-inline: 5px;
+    }
+
+    .sidebar-item {
+        min-height: 65px;
+    }
+
+    .sidebar-item svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sidebar-item span {
+        font-size: 9px;
+    }
+
+    .workspace {
+        left: 72px;
+        padding: 15px;
+    }
+
+    .placeholder-window {
+        padding: 25px;
+    }
+
+    .taskbar {
+        bottom: 12px;
+        gap: 2px;
+        padding: 7px;
+    }
+
+    .taskbar-item {
+        width: 38px;
+        height: 40px;
+    }
+
+    .taskbar-item svg {
+        width: 21px;
+    }
+
+    .system-info {
+        gap: 9px;
+        font-size: 10px;
+    }
+}
+
+
+/* Animated Background */
+
+.desktop {
+    animation: backgroundGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundGlow {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+/* Smooth interactions */
+
+button {
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
