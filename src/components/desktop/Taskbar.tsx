@@ -9,11 +9,11 @@ import {
 } from "lucide-react";
 
 const apps = [
-  { id: "home", icon: Home },
+  { id: "about", icon: Home },
   { id: "projects", icon: Folder },
   { id: "skills", icon: Code2 },
-  { id: "database", icon: Database },
   { id: "terminal", icon: Terminal },
+  { id: "api", icon: Database },
   { id: "contact", icon: Mail },
 ];
 
