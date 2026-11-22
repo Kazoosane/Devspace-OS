@@ -7,11 +7,14 @@ import {
 
 const techStack = [
   "PHP",
+  "Javasript",
   "Laravel",
   "Node.js",
+  "Express.js",
   "TypeScript",
-  "PostgreSQL",
   "React",
+  "PostgreSQL",
+  "MySQL"
 ];
 
 export default function AboutMe() {
@@ -27,7 +30,7 @@ export default function AboutMe() {
           <p className="profile-label">HELLO, WORLD! 👋</p>
           <h1>I'm Hadi Sumanjaya</h1>
           <p className="profile-role">
-            Backend Developer Enthusiast
+            Full Stack Developer Enthusiast
           </p>
         </div>
       </section>
@@ -38,7 +41,7 @@ export default function AboutMe() {
 
         <p>
           I'm a software development student who enjoys
-          building applications and exploring backend
+          building applications and exploring frontend and backend
           technologies.
         </p>
 
@@ -64,6 +67,11 @@ export default function AboutMe() {
         <div className="info-item">
           <Terminal size={18} />
           <span>Backend Development</span>
+        </div>
+
+        <div className="info-item">
+          <Terminal size={18} />
+          <span>Frontend Development</span>
         </div>
       </section>
 
@@ -92,6 +100,8 @@ export default function AboutMe() {
           <a href="https://instagram.com/" target="_blank">
             Instagram
           </a>
+
+          <a href="mailto:hadisumanjaya282@gmail.com">Email</a>
         </div>
       </section>
     </div>
