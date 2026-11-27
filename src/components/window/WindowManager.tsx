@@ -3,6 +3,7 @@ import Window from "./Window";
 import AboutMe from "../../apps/AboutMe/AboutMe";
 import TerminalApp from "../terminal/Terminal";
 import Projects from "../../apps/Projects/Projects";
+import Contact from "../../apps/Contacts/Contact";
 
 function AppContent({ id }: { id: string }) {
   switch (id) {
@@ -14,6 +15,9 @@ function AppContent({ id }: { id: string }) {
 
     case "projects":
         return <Projects />
+
+    case "contacts":
+        return <Contact />
 
     default:
       return (
